@@ -133,7 +133,6 @@ elif num == 10:
 else:
     print("Error! Selection must be an integer between 1 and 10")
 print("")
-print("")
 
 enter = input ("Press enter to continue")
 print("")
@@ -386,5 +385,3 @@ print("")
 
 enter = input ("Press enter to continue")
 print("")
-
-# Test
