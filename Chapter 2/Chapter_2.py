@@ -304,5 +304,3 @@ print("Question 15 - Turtle Graphics Drawings")
 print("Use the turtle graphics library to write programs that reproduce each \
 of the designs shown in Figure 2-34")
 print("")
-
-#Test
