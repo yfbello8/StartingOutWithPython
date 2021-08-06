@@ -567,6 +567,11 @@ elif div_four == 0:
 else:
    is_leap_year = False
 
+if is_leap_year:
+    print("In", year, ", February has 29 days")
+else:
+    print("In", year, ", February has 28 days")
+
 print("")
 
 enter = input ("Press enter to continue")
@@ -596,9 +601,28 @@ print("Move the router to a new location.")
 print("Did that fix the problem? no [ENTER]")
 print("Get a new router.")
 print("")
-print("")
-print("")
+print("Reboot the computer and try to connect")
+choice = input("Did that fix the problem?")
+if choice == "no":
+    print("Reboot the router and try to connect")
+    choice = input("Did that fix the problem?")
+
+    if choice == "no":
+        print("Make sure the cables between the router and modem are plugged \
+        in firmly")
+        choice = input("Did that fix the problem?")
+
+        if choice == "no":
+            print("Move the router to a new location.")
+            choice = input("Did that fix the problem?")
+
+            if choice == "no":
+                print("Get a new router.")
 print("")
 
 enter = input ("Press enter to continue")
 print("")
+
+print("Thanks for checking out Programming Assignments for Chapter 3! ")
+print("Check out some of the other Programming Assignment I have up.")
+print("Goodbye!")
