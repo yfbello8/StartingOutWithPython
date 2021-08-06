@@ -1,4 +1,4 @@
-print("Chapter 3 - Decision Structures and Boolean Logic")
+print("\t Chapter 3 - Decision Structures and Boolean Logic")
 print("This program displays the Programming Challenges in Chapter 3")
 print("")
 
@@ -55,6 +55,8 @@ if area_1 > area_2:
     print("Rectangle 1 has a greater area")
 elif area_2 > area_1:
     print("Rectangle 2 has a greater area")
+elif area_1 == area_2:
+    print("The rectangles have the same area")
 
 print("")
 
@@ -115,7 +117,7 @@ if num == 1:
 elif num == 2:
     print("II")
 elif num == 3:
-    print("3")
+    print("III")
 elif num == 4:
     print("IV")
 elif num == 5:
@@ -149,6 +151,14 @@ calculates its weight. If the object weighs more than 500 newtons, display a \
 message indicating that it is too heavy. If the object weighs less than 100 \
 newtons, display a message indicating that it is too light")
 print("")
+mass = float(input("Enter an object's mass: "))
+weight = mass * 9.8
+
+if weight > 500:
+    print("Object is too heavy!")
+elif weight < 100:
+    print("Object is too light!")
+
 print("")
 
 enter = input ("Press enter to continue")
@@ -167,6 +177,15 @@ month times the day equals the year. If so, it should display a message saying \
 the date is magic. Otherwise, it should display a message saying the date is \
 not magic")
 print("")
+month = int(input("Enter a month (1 for January, 2 for February, etc): "))
+date = int(input("Enter a date: "))
+year = int(input("Enter the last two digits of a year: "))
+magic_num = month * date 
+
+if magic_num == year:
+    print("This number is a magic number!")
+else:
+    print("This number is not a magic number!")
 print("")
 
 enter = input ("Press enter to continue")
@@ -186,9 +205,25 @@ primary colors to mix. If the user enters anything other than “red,” “blue
 or “yellow,” the program should display an error message. Otherwise, the \
 program should display the name of the secondary color that results")
 print("")
-print("")
-print("")
-print("")
+color_1 = input("Enter a color you want to mix: ")
+color_2 = input("Enter the second color you want to mix: ")
+
+if color_1 == "red" and color_2 == "blue":
+    print("The mixed color is purple")
+elif color_1 == "blue" and color_2 == "red":
+    print("The mixed color is purple")
+elif color_1 == "red" and color_2 == "yellow":
+    print("The mixed color is orange")
+elif color_1 == "yellow" and color_2 == "red":
+    print("The mixed color is orange")
+elif color_1 == "yellow" and color_2 == "blue":
+    print("The mixed color is green")
+elif color_1 == "blue" and color_2 == "yellow":
+    print("The mixed color is green")
+else:
+    print("ERROR! You have entered a color that is not red, yellow or blue. Please \
+    check you spelling and capitalization")
+
 print("")
 
 enter = input ("Press enter to continue")
@@ -207,7 +242,42 @@ print("- The minimum number of packages of hot dog buns required")
 print("- The number of hot dogs that will be left over")
 print("- The number of hot dog buns that will be left over")
 print("")
-print("")
+
+# Calculate the number of hot dogs needed
+people = int(input("Enter the number of people attending this party: "))
+hotdogs_per_person = int(input("Enter the number of hot dogs each person will \
+consume: "))
+hotdogs_needed = hotdogs_per_person * people
+
+# Calculate the number of packages of hot dogs needed, since there are 10 hot 
+# dogs in a package
+hotdog_packages_needed = hotdogs_needed // 10 
+
+# If the remainder of the integer division above is not equal to 0, then add 1 
+# more package. This is so we over serve and not under-serve
+if hotdogs_needed % 10 != 0: 
+    hotdog_packages_needed = hotdog_packages_needed + 1
+# Calculate the remaining hot dogs
+hotdogs_remainder = hotdogs_needed % 10 
+
+# Calculate the number of packages of hot dog buns needed, since there are 8 
+# hot dogs buns in a package
+hotdog_buns_needed = hotdogs_needed // 8 
+# If the remainder of the integer division above is not equal to 0, then add 1 
+# more package. This is so we over serve and not under-serve
+if hotdog_buns_needed % 8 != 0:
+    hotdog_buns_needed += 1
+# Calculate the remaining hot dog buns
+hotdog_buns_remainder = hotdogs_needed % 8 
+
+print("The minimum number of packages of hot dogs required:        ", \
+    format(hotdog_packages_needed, ',d'))
+print("The minimum number of packages of hot dog buns required:    ", \
+    format(hotdog_buns_needed, ',d'))
+print("The number of hot dogs that will be left over:              ", \
+    format(hotdogs_remainder, ',d'))
+print("The number of hot dog buns that will be left over:          ", \
+    format(hotdog_buns_remainder, ',d'))
 print("")
 
 enter = input ("Press enter to continue")
@@ -230,6 +300,40 @@ print("Write a program that asks the user to enter a pocket number and displays 
 whether the pocket is green, red, or black. The program should display an error \
 message if the user enters a number that is outside the range of 0 through 36")
 print("")
+pocket_num = int(input("Enter a pocket number: "))
+remainder = pocket_num % 2
+
+# This is a flag that sets if the number is even or odd
+if remainder == 0:
+    even = True
+else:
+    even = False
+
+if pocket_num == 0:
+    print("This pocket is green")
+elif pocket_num > 0 and pocket_num < 11:
+    if even: 
+        print("This pocket is black")
+    else:
+        print("This pocket is red")
+elif pocket_num > 10 and pocket_num < 19:
+    if even:
+        print("This pocket is red")
+    else:
+        print("This pocket is black")
+elif pocket_num > 18 and pocket_num < 29:
+    if even: 
+        print("This pocket is black")
+    else:
+        print("This pocket is red")
+elif pocket_num > 28 and pocket_num < 37:
+    if even:
+        print("This pocket is red")
+    else:
+        print("This pocket is black")
+else:
+    print("ERROR! Selection is out of range!")
+
 print("")
 print("")
 
@@ -245,8 +349,18 @@ congratulate the user for winning the game. Otherwise, the program should \
 display a message indicating whether the amount entered was more than or less \
 than one dollar")
 print("")
-print("")
-print("")
+pennies = int(input("Enter the number of pennies: "))
+nickels = int(input("Enter the number of nickels: "))
+dimes = int(input("Enter the number of dimes: "))
+quarters = int(input("Enter the number of quarters: "))
+
+if pennies * 0.01 + nickels * 0.05 + dimes * 0.1 + quarters * .25 == 1.0:
+    print("Congratulations! Those coins do make up a dollar!")
+else:
+    if pennies * 0.01 + nickels * 0.05 + dimes * 0.1 + quarters * .25 > 1.0:
+        print("These coins actually add to more than a dollar. Better luck next time")
+    elif pennies * 0.01 + nickels * 0.05 + dimes * 0.1 + quarters * .25 < 1.0:
+        print("These coins actually add to less than a dollar. Better luck next time")
 print("")
 
 enter = input ("Press enter to continue")
@@ -266,7 +380,18 @@ print("")
 print("Write a program that asks the user to enter the number of books that he \
 or she has purchased this month, then displays the number of points awarded")
 print("")
-print("")
+books_purchased = int(input("Enter the number of books purchased this month: "))
+
+if books_purchased == 0:
+    print("Points earned: 0")
+elif books_purchased > 2 and books_purchased < 5:
+    print("Points earned: 5")
+elif books_purchased > 4 and books_purchased < 7:
+    print("Points earned: 15")
+elif books_purchased > 6 and books_purchased < 9:
+    print("Points earned: 30")
+elif books_purchased > 8:
+    print("Points earned: 60")
 print("")
 
 enter = input ("Press enter to continue")
@@ -275,19 +400,58 @@ print("")
 print("Question 12 - Software Sales")
 print("A software company sells a package that retails for $99. Quantity \
 discounts are given according to the following table:")
+print("Quantity", "Discount", sep='     ')
+print("10 - 19", "10%", sep='      ')
+print("20 - 49", "20%", sep='      ')
+print("50 - 99", "30%", sep='      ')
+print("100 or more", "40$", sep='  ')
 print("")
+print("Write a program that asks the user to enter the number of packages \
+purchased. The program should then display the amount of the discount \
+(if any) and the total amount of the purchase after the discount")
 print("")
-print("")
+quantity_purchased = int(input("Enter the number of packages purchased: "))
+
+if quantity_purchased > 9 and quantity_purchased < 20:
+    print("Discount: 10%")
+elif quantity_purchased > 19 and quantity_purchased < 50:
+    print("Discount: 20%")
+elif quantity_purchased > 49 and quantity_purchased < 100:
+    print("Discount: 30%")
+elif quantity_purchased > 100:
+    print("Discount: 40%")
 print("")
 
 enter = input ("Press enter to continue")
 print("")
 
-print("Question 13 - ")
+print("Question 13 - Shipping Charges")
+print("The Fast Freight Shipping Company charges the following rates:")
 print("")
+print("Weight of Package", "Rate per Pound", sep='                         ')
+print("2 pounds or less", "$1.50", sep='                         ')
+print("Over 2 pounds but not more than 6 pounds", "$3.00", sep='          ')
+print("Over 6 pounds but not more than 10 pounds", "$4.00", sep='         ')
+print("Over 10 pounds", "$4.75", sep='                         ')
 print("")
-print("")
-print("")
+print("Write a program that asks the user to enter the weight of a package \
+then displays the shipping charges")
+weight = float(input("Enter the weight of a package: "))
+
+if weight <= 2:
+    rate = 1.5
+elif weight > 2 and weight < 6:
+    rate = 3.0
+elif weight > 6 and weight < 10:
+    rate = 4.0
+elif weight > 10:
+    rate = 4.75
+else:
+    print("ERROR! Selection cannot be processed. Try again")
+
+shipping_charges = rate * weight
+
+print("The shipping charges for this package is: $", format(shipping_charges, ',.2f'), sep='')
 print("")
 
 enter = input ("Press enter to continue")
@@ -308,6 +472,19 @@ and 25. If the BMI is less than 18.5, the person is considered to be \
 underweight. If the BMI value is greater than 25, the person is considered \
 to be overweight")
 print("")
+weight = float(input("Enter the weight (in pounds): "))
+height = float(input("Enter the height (in inches): "))
+
+bmi = weight * 703 / height**2
+
+print("BMI: ", format(bmi, '.2f'))
+
+if bmi < 18.5:
+    print("This person is considered underweight")
+elif bmi >= 18.5 and bmi <= 25:
+    print("This person is considered optimal")
+elif bmi > 25:
+    print("This person is considered overweight")
 print("")
 
 enter = input ("Press enter to continue")
@@ -327,7 +504,28 @@ print("- There are 86,400 seconds in a day. If the number of seconds entered by 
 the user is greater than or equal to 86,400, the program should convert the \
 number of seconds to days, hours, minutes, and seconds")
 print("")
-print("")
+sec = int(input("Enter the number of seconds: "))
+
+days = 0
+hours = 0
+min = 0
+
+if sec >= 60:
+    min = sec // 60
+    sec = sec % 60
+    
+    if sec >= 3600:
+        hours = min // 60
+        min = min % 60
+         
+        if sec >= 86400:
+            days = sec // 86400
+            hours = hours % 24
+
+print("Days:    ", days)
+print("Hours:   ", hours)
+print("Minutes: ", min)
+print("Seconds: ", sec)
 
 enter = input ("Press enter to continue")
 print("")
@@ -348,8 +546,27 @@ print("Here is a sample run of the program:")
 print("Enter a year: 2008 [ENTER]")
 print("In 2008 February has 29 days")
 print("")
-print("")
-print("")
+year = int(input("Enter a year: "))
+
+# Check if it is divisible by 100
+remainder = year % 100
+# Check if it is divisible by 400
+div_four_hundred = year % 400 
+if div_four_hundred == 0:
+    is_div_four_hundred = True
+else:
+    is_div_four = False
+# Check if it is divisible by 4
+div_four = year % 4
+
+if remainder == 0:
+    if div_four_hundred:
+        is_leap_year = True
+elif div_four == 0:
+    is_leap_year = True
+else:
+   is_leap_year = False
+
 print("")
 
 enter = input ("Press enter to continue")
