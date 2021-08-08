@@ -4,13 +4,16 @@ print("")
 
 print("Question 1 - Personal Information")
 print("Write a program that displays the following information:")
-print("Your name")
-print("Your address, with city, state, and ZIP")
-print("Your telephone number")
-print("Your college major")
 print("")
-print("My name is Yusuf. My address is 123 Ryan Terrace, San Ramon, CA, 90332 \n \n")
+print("- Your name")
+print("- Your address, with city, state, and ZIP")
+print("- Your telephone number")
+print("- Your college major")
+print("")
+print("My name is Yusuf. My address is 123 Ryan Terrace, San Ramon, CA, 90332 \n")
 
+enter = input ("Press enter to continue")
+print("")
 
 print("Question 2 - Sales Prediction")
 print("A company has determined that its annual profit is typically 23 percent \
@@ -19,8 +22,10 @@ amount of total sales, then displays the profit that will be made from that amou
 print("")
 total_sales = float(input("Enter the projected amount of total sales: "))
 profit = 1.23 * total_sales 
-print("The profit is ", total_sales)
+print("Profit: $", profit)
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 3 - Land Calculation")
@@ -30,8 +35,10 @@ calculates the number of acres in the tract.")
 print("")
 feet = float(input("Enter the number of square feet you want to convert: "))
 acres = feet / 43560.0
-print("The numbers of acres is ", acres)
+print("Numbers of acres:", acres)
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 4 - Total Purchase")
@@ -46,10 +53,12 @@ item_5 = float(input('Enter the price of the fifth items: '))
 subtotal = item_1 + item_2 + item_3 + item_4 + item_5
 sales_tax = subtotal * .07
 total = subtotal * 1.07
-print("The subtotal of the five items is $", format(subtotal, ',.2f'))
-print("The sales tax for this purchase is $", format(sales_tax, ',.2f'))
-print("The final total is $", format(total, ',.2f'))
+print("The subtotal of the five items is $", format(subtotal, ',.2f'), sep='')
+print("The sales tax for this purchase is $", format(sales_tax, ',.2f'), sep='')
+print("The final total is $", format(total, ',.2f'), sep='')
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 5 - Distance Traveled")
@@ -70,12 +79,13 @@ print("The car will travel", distance, "in 10 hours")
 distance = speed * 15
 print("The car will travel", distance, "in 15 hours")
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
-
 print("Question 6 - Sales Tax")
-print("Write a program that will ask the user to enter the amount of a purchase \
-. The program should then compute the state and county sales tax. Assume the \
+print("Write a program that will ask the user to enter the amount of a purchase. \
+The program should then compute the state and county sales tax. Assume the \
 state sales tax is 5 percent and the county sales tax is 2.5 percent. The \
 program should display the amount of the purchase, the state sales tax, the \
 county sales tax, the total sales tax, and the total of the sale (which is the \
@@ -94,8 +104,9 @@ print("County Sales Tax: $", format(county_tax, ',.2f'))
 print("Total Sales Tax:  $", format(total_tax, ',.2f'))
 print("Purchase Amount:  $", format(total, ',.2f'))
 print("")
-print("")
 
+enter = input ("Press enter to continue")
+print("")
 
 print("Question 7 - Miles - per - Gallon")
 print("A car's miles-per-gallon (MPG) can be calculated with the following \
@@ -110,22 +121,28 @@ gallons_used = float(input("Enter the number of gallons used: "))
 mpg = miles_driven / gallons_used
 print("The MPG of the car is", format(mpg, ',.2f'))
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 8 - Tip, Tax, and Total")
 print("Write a program that calculates the total amount of a meal purchased at \
-a restaurant. The program should ask the user to enter the charge for the food,\
-then calculate the amounts of a 18 percent tip and 7 percent sales tax. Display\
+a restaurant. The program should ask the user to enter the charge for the food, \
+then calculate the amounts of a 18 percent tip and 7 percent sales tax. Display \
 each of these amounts and the total.")
 print("")
 food_charge = float(input("Enter the charge of the food: "))
 tip = food_charge * .18
 sales_tax = food_charge * .07
 total_bill = food_charge + tip + sales_tax 
-print("Total charged for food: $", format(food_charge, ',.2f'))
-print("Total tip:              $", format(tip, ',.2f' ))
-print("Total sales tax:        $", format(sales_tax, ',.2f'))
-print("Total bill:             $", format(total_bill, ',.2f'))
+print("Total charged for food: $", format(food_charge, ',.2f'), sep='')
+print("Total tip:              $", format(tip, ',.2f' ), sep='')
+print("Total sales tax:        $", format(sales_tax, ',.2f'), sep='')
+print("Total bill:             $", format(total_bill, ',.2f'), sep='')
+print("")
+
+enter = input ("Press enter to continue")
+print("")
 
 print("Question 9 - Celsius to Fahrenheit Temperature Converter")
 print("Write a program that converts Celsius temperatures to Fahrenheit \
@@ -135,9 +152,11 @@ print("The program should ask the user to enter a temperature in Celsius, then\
 display the temperature converted to Fahrenheit")
 celsius = float(input("Enter a temperature in Celsius: ")) 
 fahrenheit = ((9/5.0) * celsius) + 32 
-print("Celsius:", format(celsius, ',.2f'))
-print("Fahrenheit:", format(fahrenheit, ',.2f'))
+print("Celsius:", celsius)
+print("Fahrenheit:", fahrenheit)
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 10 - Ingredient Adjuster")
@@ -163,6 +182,8 @@ print("Cups of sugar needed: ", format(sugar, ',.2f'))
 print("Cups of butter needed:", format(butter, ',.2f'))
 print("Cups of flour needed: ", format(flour, ',.2f'))
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 11 - Male and Female Percentages")
@@ -177,11 +198,13 @@ print("")
 males = int(input("Enter the number of males in the class: "))
 females = int(input("Enter the number of females in the class: "))
 total = males + females
-percent_males = (males / total)* 100
-percent_females = (females / total)* 100
+percent_males = (males / total) / 100
+percent_females = (females / total) / 100
 print("Percent males:", format(percent_males, ',.2%'))
 print("Percent females:", format(percent_females,',.2%'))
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 12 - Stock Transaction Program")
@@ -212,15 +235,17 @@ selling_stockbroker_cost = amount_received * 0.03
 net = (amount_received - selling_stockbroker_cost) - (amount_paid + \
     buying_stockbroker_cost)
 print("Amount paid to buy stock:                $", \
-    format(amount_paid, ',.2f'))
+    format(amount_paid, ',.2f'), sep='')
 print("Amount paid to stockbroker when buying:  $", \
-    format(buying_stockbroker_cost, ',.2f'))
+    format(buying_stockbroker_cost, ',.2f'), sep='')
 print("Amount earned from selling stock:        $", \
-    format(amount_received, ',.2f'))
+    format(amount_received, ',.2f'), sep='')
 print("Amount paid to stockbroker when selling: $", \
-    format(selling_stockbroker_cost, ',.2f'))
-print("Net profit or loss:                      $", format(net, ',.2f'))
+    format(selling_stockbroker_cost, ',.2f'), sep='')
+print("Net profit or loss:                      $", format(net, ',.2f'), sep='')
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 13 - Planting Grapevines")
@@ -246,12 +271,15 @@ display the number of grapevines that will fit in the row")
 print("")
 row_length = float(input("Enter the row length, in feet: "))
 end_post_assebly_space = float(input("Enter the space used by an end-post \
-assembly, in feet"))
-space_between_vines = float(input("Enter the space between the vines"))
-num_grapevines = row_length - (2*end_post_assebly_space*space_between_vines)
+assembly, in feet: "))
+space_between_vines = float(input("Enter the space between the vines: "))
+num_grapevines = (row_length - (2*end_post_assebly_space*space_between_vines))\
+   / space_between_vines
 print("The number of grapevines that will fit in the row is", \
     format(num_grapevines, ',.2f'))
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 14 - Compound Interest")
@@ -290,17 +318,59 @@ annual_interest_rate = float(input("Enter the annual interest rate: "))
 annual_interest_rate = annual_interest_rate / 100.0
 compounding_num = float(input("Enter the number of times per year that the \
 interest is compounded (For example, if interest is compounded monthly,\
-enter 12. If interest is compounded quarterly, enter 4.) "))
+enter 12. If interest is compounded quarterly, enter 4.): "))
 num_years = float(input("Enter the number of years the account will be left to \
-earn interest"))
-final_amount = principal * (1 + (annual_interest_rate/compounding_num)**\
+earn interest: "))
+
+# There was an issue with the math so I decided to debug just the math aspect of it
+#print("P = ", principal)
+#print("r = ", annual_interest_rate)
+#print("n = ", compounding_num)
+#print("t = ", num_years)
+#print("")
+#print("r/n = ", annual_interest_rate / compounding_num)
+#print("(r/n)**(n*t)", ((annual_interest_rate / compounding_num) ** (compounding_num * num_years)))
+#
+
+final_amount = principal * ((1 + (annual_interest_rate/compounding_num))**\
     (compounding_num*num_years))
 print("After", num_years, "years, the money in the account would have grown to $",\
     format(final_amount, ',.2f'))
 print("")
+
+enter = input ("Press enter to continue")
 print("")
 
 print("Question 15 - Turtle Graphics Drawings")
 print("Use the turtle graphics library to write programs that reproduce each \
 of the designs shown in Figure 2-34")
+print("")
+# I have only done 1 of the 6 designs now. I will do the rest later
+import turtle
+turtle.speed(1)
+# Begin creating the first shape
+turtle.bgcolor('gray')
+turtle.fillcolor('white')
+turtle.begin_fill()
+turtle.showturtle()
+turtle.setheading(45)
+turtle.forward(100)
+turtle.setheading(-45)
+turtle.forward(100)
+turtle.setheading(225)
+turtle.forward(100)
+turtle.setheading(135)
+# End the first shape and begin the second shape
+turtle.forward(200)
+turtle.setheading(225)
+turtle.forward(100)
+turtle.setheading(-45)
+turtle.forward(100)
+turtle.setheading(45)
+turtle.forward(100)
+turtle.end_fill()
+turtle.reset()
+
+
+enter = input ("Press enter to continue")
 print("")
