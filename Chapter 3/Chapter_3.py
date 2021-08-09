@@ -5,6 +5,80 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
+# Hit the Target Game 
+import turtle
+ 
+# Named constants
+SCREEN_WIDTH = 600     # Screen width
+SCREEN_HEIGHT = 600    # Screen height
+TARGET_LLEFT_X = 100   # Target's lower-left X
+TARGET_LLEFT_Y = 250   # Target's lower-left Y
+TARGET_WIDTH = 25      # Width of the target
+FORCE_FACTOR = 30      # Arbitrary force factor
+PROJECTILE_SPEED = 1   # Projectile's animation speed
+NORTH = 90             # Angle of north direction
+SOUTH = 270            # Angle of south direction
+EAST = 0               # Angle of east direction
+WEST = 180             # Angle of west direction
+ 
+# Setup the window.
+turtle.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
+  
+# Draw the target.
+turtle.hideturtle()
+turtle.speed(0)
+turtle.penup()
+turtle.goto(TARGET_LLEFT_X, TARGET_LLEFT_Y)
+turtle.pendown()
+turtle.setheading(EAST)
+turtle.forward(TARGET_WIDTH)
+turtle.setheading(NORTH)
+turtle.forward(TARGET_WIDTH)
+turtle.setheading(WEST)
+turtle.forward(TARGET_WIDTH)
+turtle.setheading(SOUTH)
+turtle.forward(TARGET_WIDTH)
+turtle.penup()
+ 
+# Center the turtle.
+turtle.goto(0, 0)
+turtle.setheading(EAST)
+turtle.showturtle()
+turtle.speed(PROJECTILE_SPEED)
+  
+# Get the angle and force from the user.
+angle = float(input("Enter the projectile's angle: "))
+force = float(input("Enter the launch force (1−10): "))
+  
+# Calculate the distance.
+distance = force * FORCE_FACTOR
+
+# Set the heading.
+turtle.setheading(angle)
+  
+# Launch the projectile.
+turtle.pendown()
+turtle.forward(distance)
+ 
+# Did it hit the target?
+if (turtle.xcor() >= TARGET_LLEFT_X and
+    turtle.xcor() <= (TARGET_LLEFT_X + TARGET_WIDTH) and
+    turtle.ycor() >= TARGET_LLEFT_Y and
+    turtle.ycor() <= (TARGET_LLEFT_Y + TARGET_WIDTH)):
+        print('Target hit!')
+else:
+    print('You missed the target.')
+    # Hints (My additions):
+    if (turtle.xcor() < TARGET_LLEFT_X):
+        print("Try a greater angle")
+    elif turtle.xcor() > (TARGET_LLEFT_X + TARGET_WIDTH):
+        print("Try reducing the angle")
+    if (turtle.ycor() < TARGET_LLEFT_Y):
+        print("Try a greater force")
+    elif turtle.ycor() > (TARGET_LLEFT_Y + TARGET_WIDTH):
+          print("Try reducing the force")
+
+
 print("Question 1 - Day of the Week")
 print("Write a program that asks the user for a number in the range of 1 \
 through 7. The program should display the corresponding day of the week, \
@@ -624,29 +698,166 @@ enter = input ("Press enter to continue")
 print("")
 
 print("Question 18 - Restaurant Selector")
+print("You have a group of friends coming to visit for your high school \
+reunion, and you want to take them out to eat at a local restaurant. You \
+aren’t sure if any of them have dietary restrictions, but your restaurant \
+choices are as follows:")
 print("")
+print("- Joe’s Gourmet Burgers—Vegetarian: No, Vegan: No, Gluten-Free: No")
+print("- Main Street Pizza Company—Vegetarian: Yes, Vegan: No, Gluten-Free: Yes")
+print("- Corner Café—Vegetarian: Yes, Vegan: Yes, Gluten-Free: Yes")
+print("- Mama’s Fine Italian—Vegetarian: Yes, Vegan: No, Gluten-Free: No")
+print("- The Chef’s Kitchen—Vegetarian: Yes, Vegan: Yes, Gluten-Free: Yes")
 print("")
+print("Write a program that asks whether any members of your party are \
+vegetarian, vegan, or gluten- free, to which then displays only the \
+restaurants to which you may take the group. Here is an example of the \
+program’s output:")
 print("")
+print("Is anyone in your party a vegetarian? yes [ENTER]")
+print("Is anyone in your party a vegan? no [ENTER]")
+print("Is anyone in your party gluten-free? yes [ENTER]")
+print("Here are your restaurant choices:")
+print("\tMain Street Pizza Company")
+print("\tCorner Cafe")
+print("\tThe Chef's Kitchen")
 print("")
+print("Here is another example of the program’s output:")
+print("Is anyone in your party a vegetarian? yes [ENTER]")
+print("Is anyone in your party a vegan? yes [ENTER]")
+print("Is anyone in your party gluten-free? yes [ENTER]")
+print("Here are your restaurant choices:")
+print("\tCorner Cafe")
+print("\tThe Chef's Kitchen")
 print("")
-print("")
-print("")
-print("")
-print("")
+# Get the selection - I think the best way to do this is through the use of flags
+veg_yn = input("Is anyone in your party a vegetarian? (Enter 'yes' or 'no'): ")
+vegan_yn = input("Is anyone in your party a vegan? (Enter 'yes' or 'no'): ")
+gf_yn = input("Is anyone in your party gluten-free? (Enter 'yes' or 'no'): ")
+
+if veg_yn == "yes":
+    is_veg = True
+elif veg_yn == "no":
+    is_veg = False
+else:
+    print("That selection is not an option! Please choose either 'yes' or 'no'")
+
+if vegan_yn == "yes":
+    is_vegan = True
+elif vegan_yn == "no":
+    is_vegan = False
+else:
+    print("That selection is not an option! Please choose either 'yes' or 'no'")
+
+if gf_yn == "yes":
+    is_gf = True
+elif gf_yn == "no":
+    is_gf = False
+else:
+    print("That selection is not an option! Please choose either 'yes' or 'no'")
+
+print("Here are your restaurant choices:")
+
+# Decision statements
+if is_veg:
+    #If you have vegetarians, exclude Joe's
+    if is_gf:
+        #If you have gluten-free members, exclude Mama's
+        if is_vegan:
+            #If you have vegan members, exclude Main Street
+            print("\t Corner Café")
+            print("\t The Chef’s Kitchen")
+        else:
+            print("\t Main Street Pizza Company")
+            print("\t Corner Café")
+            print("\t The Chef’s Kitchen")
+    else:
+        print("\t Mama’s Fine Italian")
+        print("\t Main Street Pizza Company")
+        print("\t Corner Café")
+        print("\t The Chef’s Kitchen")
+else:
+    print("\t Joe's Gourmet Burgers")
+    print("\t Mama’s Fine Italian")
+    print("\t Main Street Pizza Company")
+    print("\t Corner Café")
+    print("\t The Chef’s Kitchen")
+
 print("")
 
 enter = input ("Press enter to continue")
 print("")
 
-print("Question 19 - ")
+print("Question 19 - Turtle Graphics: Hit the Target Modification")
+print("Enhance the hit_the_target.py program that you saw in Program 3-9 so \
+that, when the projectile misses the target, it displays hints to the user \
+indicating whether the angle and/or the force value should be increased or \
+decreased. For example, the program should display messages such as 'Try a \
+greater angle' and 'Use less force.'")
 print("")
-print("")
-print("")
-print("")
-print("")
-print("")
-print("")
-print("")
+# Hit the Target Game 
+import turtle
+ 
+# Named constants
+SCREEN_WIDTH = 600     # Screen width
+SCREEN_HEIGHT = 600    # Screen height
+TARGET_LLEFT_X = 100   # Target's lower-left X
+TARGET_LLEFT_Y = 250   # Target's lower-left Y
+TARGET_WIDTH = 25      # Width of the target
+FORCE_FACTOR = 30      # Arbitrary force factor
+PROJECTILE_SPEED = 1   # Projectile's animation speed
+NORTH = 90             # Angle of north direction
+SOUTH = 270            # Angle of south direction
+EAST = 0               # Angle of east direction
+WEST = 180             # Angle of west direction
+ 
+# Setup the window.
+turtle.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
+  
+# Draw the target.
+turtle.hideturtle()
+turtle.speed(0)
+turtle.penup()
+turtle.goto(TARGET_LLEFT_X, TARGET_LLEFT_Y)
+turtle.pendown()
+turtle.setheading(EAST)
+turtle.forward(TARGET_WIDTH)
+turtle.setheading(NORTH)
+turtle.forward(TARGET_WIDTH)
+turtle.setheading(WEST)
+turtle.forward(TARGET_WIDTH)
+turtle.setheading(SOUTH)
+turtle.forward(TARGET_WIDTH)
+turtle.penup()
+ 
+# Center the turtle.
+turtle.goto(0, 0)
+turtle.setheading(EAST)
+turtle.showturtle()
+turtle.speed(PROJECTILE_SPEED)
+  
+# Get the angle and force from the user.
+angle = float(input("Enter the projectile's angle: "))
+force = float(input("Enter the launch force (1−10): "))
+  
+# Calculate the distance.
+distance = force * FORCE_FACTOR
+
+# Set the heading.
+turtle.setheading(angle)
+  
+# Launch the projectile.
+turtle.pendown()
+turtle.forward(distance)
+ 
+# Did it hit the target?
+if (turtle.xcor() >= TARGET_LLEFT_X and
+    turtle.xcor() <= (TARGET_LLEFT_X + TARGET_WIDTH) and
+    turtle.ycor() >= TARGET_LLEFT_Y and
+    turtle.ycor() <= (TARGET_LLEFT_Y + TARGET_WIDTH)):
+        print('Target hit!')
+else:
+    print('You missed the target.')
 
 enter = input ("Press enter to continue")
 print("")
