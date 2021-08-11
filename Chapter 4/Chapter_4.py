@@ -12,8 +12,23 @@ days. The loop should ask for the number of bugs collected for each day, and \
 when the loop is finished, the program should display the total number of \
 bugs collected")
 print("")
-print("")
-print("")
+running_bug_count = 0
+
+for day in [1,2,3,4,5]:
+    daily_bug_count = int(input("Enter the number of bugs collected on day " \
+        + str(day) + ": "))
+    running_bug_count += daily_bug_count
+
+# Initially I misunderstood the question and wanted to try and push myself a 
+# little bit to make the code a little more complex. I was having errors but 
+# as a result, rediscovered string concatenation 
+#for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", \
+#   "Sunday"]:
+#    daily_bug_count = int(input("Enter the number of bugs collected on day ", \
+#    day, ": "))
+#    running_bug_count += daily_bug_count
+
+print("The number of bugs collected over 5 days:", running_bug_count)
 print("")
 
 enter = input ("Press enter to continue")
@@ -24,8 +39,9 @@ print("Running on a particular treadmill you burn 4.2 calories per minute. \
 Write a program that uses a loop to display the number of calories burned \
 after 10, 15, 20, 25, and 30 minutes")
 print("")
-print("")
-print("")
+print("Minutes \t Calories Burned")
+for minutes in (10, 15, 20, 25, 30):
+    print(minutes, "\t", minutes*4.2)
 print("")
 
 enter = input ("Press enter to continue")

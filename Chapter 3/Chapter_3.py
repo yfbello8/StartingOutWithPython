@@ -5,78 +5,94 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
-# Hit the Target Game 
-import turtle
- 
-# Named constants
-SCREEN_WIDTH = 600     # Screen width
-SCREEN_HEIGHT = 600    # Screen height
-TARGET_LLEFT_X = 100   # Target's lower-left X
-TARGET_LLEFT_Y = 250   # Target's lower-left Y
-TARGET_WIDTH = 25      # Width of the target
-FORCE_FACTOR = 30      # Arbitrary force factor
-PROJECTILE_SPEED = 1   # Projectile's animation speed
-NORTH = 90             # Angle of north direction
-SOUTH = 270            # Angle of south direction
-EAST = 0               # Angle of east direction
-WEST = 180             # Angle of west direction
- 
-# Setup the window.
-turtle.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
-  
-# Draw the target.
-turtle.hideturtle()
-turtle.speed(0)
-turtle.penup()
-turtle.goto(TARGET_LLEFT_X, TARGET_LLEFT_Y)
-turtle.pendown()
-turtle.setheading(EAST)
-turtle.forward(TARGET_WIDTH)
-turtle.setheading(NORTH)
-turtle.forward(TARGET_WIDTH)
-turtle.setheading(WEST)
-turtle.forward(TARGET_WIDTH)
-turtle.setheading(SOUTH)
-turtle.forward(TARGET_WIDTH)
-turtle.penup()
- 
-# Center the turtle.
-turtle.goto(0, 0)
-turtle.setheading(EAST)
-turtle.showturtle()
-turtle.speed(PROJECTILE_SPEED)
-  
-# Get the angle and force from the user.
-angle = float(input("Enter the projectile's angle: "))
-force = float(input("Enter the launch force (1−10): "))
-  
-# Calculate the distance.
-distance = force * FORCE_FACTOR
+print("Question 16 - February Days")
+print("The month of February normally has 28 days. But if it is a leap year, \
+February has 29 days. Write a program that asks the user to enter a year. The \
+program should then display the number of days in February that year. Use the \
+following criteria to identify leap years:")
+print("")
+print("1. Determine whether the year is divisible by 100. If it is, then it is \
+a leap year if and only if it is also divisible by 400. For example, 2000 is \
+a leap year, but 2100 is not")
+print("2. If the year is not divisible by 100, then it is a leap year if and \
+only if it is divisible by 4. For example, 2008 is a leap year, but 2009 is not")
+print("")
+print("Here is a sample run of the program:")
+print("Enter a year: 2008 [ENTER]")
+print("In 2008 February has 29 days")
+print("")
+year = int(input("Enter a year: "))
 
-# Set the heading.
-turtle.setheading(angle)
-  
-# Launch the projectile.
-turtle.pendown()
-turtle.forward(distance)
- 
-# Did it hit the target?
-if (turtle.xcor() >= TARGET_LLEFT_X and
-    turtle.xcor() <= (TARGET_LLEFT_X + TARGET_WIDTH) and
-    turtle.ycor() >= TARGET_LLEFT_Y and
-    turtle.ycor() <= (TARGET_LLEFT_Y + TARGET_WIDTH)):
-        print('Target hit!')
+# Check if it is divisible by 100
+remainder = year % 100
+# Check if it is divisible by 400
+div_four_hundred = year % 400 
+if div_four_hundred == 0:
+    is_div_four_hundred = True
 else:
-    print('You missed the target.')
-    # Hints (My additions):
-    if (turtle.xcor() < TARGET_LLEFT_X):
-        print("Try a greater angle")
-    elif turtle.xcor() > (TARGET_LLEFT_X + TARGET_WIDTH):
-        print("Try reducing the angle")
-    if (turtle.ycor() < TARGET_LLEFT_Y):
-        print("Try a greater force")
-    elif turtle.ycor() > (TARGET_LLEFT_Y + TARGET_WIDTH):
-          print("Try reducing the force")
+    is_div_four = False
+# Check if it is divisible by 4
+div_four = year % 4
+
+if remainder == 0:
+    if div_four_hundred:
+        is_leap_year = True
+elif div_four == 0:
+    is_leap_year = True
+else:
+   is_leap_year = False
+
+if is_leap_year:
+    print("The February in", year, "has 29 days")
+else:
+    print("The February in", year, "has 28 days")
+
+print("Question 15 - Time Calculator")
+print("Write a program that asks the user to enter a number of seconds and \
+works as follows:")
+print("")
+print("- There are 60 seconds in a minute. If the number of seconds entered by \
+the user is greater than or equal to 60, the program should convert the number \
+of seconds to minutes and seconds")
+print("- There are 3,600 seconds in an hour. If the number of seconds entered \
+by  the user is greater than or equal to 3,600, the program should convert the \
+number of seconds to hours, minutes, and seconds")
+print("- There are 86,400 seconds in a day. If the number of seconds entered by \
+the user is greater than or equal to 86,400, the program should convert the \
+number of seconds to days, hours, minutes, and seconds")
+print("")
+sec = int(input("Enter the number of seconds: "))
+
+days = 0
+hours = 0
+min = 0
+
+if sec >= 60:
+    min = sec // 60
+    sec = sec % 60
+    
+    if sec >= 3600:
+        hours = min // 60
+        min = min % 60
+         
+        if sec >= 86400:
+            days = sec // 86400
+            hours = hours % 24
+
+print("Days:    ", days)
+print("Hours:   ", hours)
+print("Minutes: ", min)
+print("Seconds: ", sec)
+
+enter = input ("Press enter to continue")
+print("")
+
+
+
+print("")
+
+enter = input ("Press enter to continue")
+print("")
 
 
 print("Question 1 - Day of the Week")
@@ -409,7 +425,6 @@ else:
     print("ERROR! Selection is out of range!")
 
 print("")
-print("")
 
 enter = input ("Press enter to continue")
 print("")
@@ -502,11 +517,11 @@ print("")
 print("Question 13 - Shipping Charges")
 print("The Fast Freight Shipping Company charges the following rates:")
 print("")
-print("Weight of Package", "Rate per Pound", sep='                         ')
-print("2 pounds or less", "$1.50", sep='                         ')
-print("Over 2 pounds but not more than 6 pounds", "$3.00", sep='          ')
-print("Over 6 pounds but not more than 10 pounds", "$4.00", sep='         ')
-print("Over 10 pounds", "$4.75", sep='                         ')
+print("Weight of Package \t\t\t\t Rate per Pound")
+print("2 pounds or less \t\t\t\t $1.50")
+print("Over 2 pounds but not more than 6 pounds \t $3.00")
+print("Over 6 pounds but not more than 10 pounds \t $4.00")
+print("Over 10 pounds \t\t\t\t\t $4.75")
 print("")
 print("Write a program that asks the user to enter the weight of a package \
 then displays the shipping charges")
@@ -561,92 +576,7 @@ elif bmi > 25:
     print("This person is considered overweight")
 print("")
 
-enter = input ("Press enter to continue")
-print("")
-
-print("Question 15 - Time Calculator")
-print("Write a program that asks the user to enter a number of seconds and \
-works as follows:")
-print("")
-print("- There are 60 seconds in a minute. If the number of seconds entered by \
-the user is greater than or equal to 60, the program should convert the number \
-of seconds to minutes and seconds")
-print("- There are 3,600 seconds in an hour. If the number of seconds entered \
-by  the user is greater than or equal to 3,600, the program should convert the \
-number of seconds to hours, minutes, and seconds")
-print("- There are 86,400 seconds in a day. If the number of seconds entered by \
-the user is greater than or equal to 86,400, the program should convert the \
-number of seconds to days, hours, minutes, and seconds")
-print("")
-sec = int(input("Enter the number of seconds: "))
-
-days = 0
-hours = 0
-min = 0
-
-if sec >= 60:
-    min = sec // 60
-    sec = sec % 60
-    
-    if sec >= 3600:
-        hours = min // 60
-        min = min % 60
-         
-        if sec >= 86400:
-            days = sec // 86400
-            hours = hours % 24
-
-print("Days:    ", days)
-print("Hours:   ", hours)
-print("Minutes: ", min)
-print("Seconds: ", sec)
-
-enter = input ("Press enter to continue")
-print("")
-
-print("Question 16 - February Days")
-print("The month of February normally has 28 days. But if it is a leap year, \
-February has 29 days. Write a program that asks the user to enter a year. The \
-program should then display the number of days in February that year. Use the \
-following criteria to identify leap years:")
-print("")
-print("1. Determine whether the year is divisible by 100. If it is, then it is \
-a leap year if and only if it is also divisible by 400. For example, 2000 is \
-a leap year, but 2100 is not")
-print("2. If the year is not divisible by 100, then it is a leap year if and \
-only if it is divisible by 4. For example, 2008 is a leap year, but 2009 is not")
-print("")
-print("Here is a sample run of the program:")
-print("Enter a year: 2008 [ENTER]")
-print("In 2008 February has 29 days")
-print("")
-year = int(input("Enter a year: "))
-
-# Check if it is divisible by 100
-remainder = year % 100
-# Check if it is divisible by 400
-div_four_hundred = year % 400 
-if div_four_hundred == 0:
-    is_div_four_hundred = True
-else:
-    is_div_four = False
-# Check if it is divisible by 4
-div_four = year % 4
-
-if remainder == 0:
-    if div_four_hundred:
-        is_leap_year = True
-elif div_four == 0:
-    is_leap_year = True
-else:
-   is_leap_year = False
-
-if is_leap_year:
-    print("In", year, ", February has 29 days")
-else:
-    print("In", year, ", February has 28 days")
-
-print("")
+# Question 16 and 15 go here
 
 enter = input ("Press enter to continue")
 print("")
@@ -676,19 +606,19 @@ print("Did that fix the problem? no [ENTER]")
 print("Get a new router.")
 print("")
 print("Reboot the computer and try to connect")
-choice = input("Did that fix the problem?")
+choice = input("Did that fix the problem? ")
 if choice == "no":
     print("Reboot the router and try to connect")
-    choice = input("Did that fix the problem?")
+    choice = input("Did that fix the problem? ")
 
     if choice == "no":
         print("Make sure the cables between the router and modem are plugged \
         in firmly")
-        choice = input("Did that fix the problem?")
+        choice = input("Did that fix the problem? ")
 
         if choice == "no":
             print("Move the router to a new location.")
-            choice = input("Did that fix the problem?")
+            choice = input("Did that fix the problem? ")
 
             if choice == "no":
                 print("Get a new router.")
