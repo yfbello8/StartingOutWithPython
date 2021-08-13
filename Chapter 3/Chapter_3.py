@@ -5,48 +5,6 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
-print("Question 16 - February Days")
-print("The month of February normally has 28 days. But if it is a leap year, \
-February has 29 days. Write a program that asks the user to enter a year. The \
-program should then display the number of days in February that year. Use the \
-following criteria to identify leap years:")
-print("")
-print("1. Determine whether the year is divisible by 100. If it is, then it is \
-a leap year if and only if it is also divisible by 400. For example, 2000 is \
-a leap year, but 2100 is not")
-print("2. If the year is not divisible by 100, then it is a leap year if and \
-only if it is divisible by 4. For example, 2008 is a leap year, but 2009 is not")
-print("")
-print("Here is a sample run of the program:")
-print("Enter a year: 2008 [ENTER]")
-print("In 2008 February has 29 days")
-print("")
-year = int(input("Enter a year: "))
-
-# Check if it is divisible by 100
-remainder = year % 100
-# Check if it is divisible by 400
-div_four_hundred = year % 400 
-if div_four_hundred == 0:
-    is_div_four_hundred = True
-else:
-    is_div_four = False
-# Check if it is divisible by 4
-div_four = year % 4
-
-if remainder == 0:
-    if div_four_hundred:
-        is_leap_year = True
-elif div_four == 0:
-    is_leap_year = True
-else:
-   is_leap_year = False
-
-if is_leap_year:
-    print("The February in", year, "has 29 days")
-else:
-    print("The February in", year, "has 28 days")
-
 print("Question 15 - Time Calculator")
 print("Write a program that asks the user to enter a number of seconds and \
 works as follows:")
@@ -66,18 +24,36 @@ sec = int(input("Enter the number of seconds: "))
 days = 0
 hours = 0
 min = 0
+remainder = 0
 
-if sec >= 60:
+if sec >= 86400:
+    days = sec // 86400
+    remainder = sec % 86400
+    if remainder >= 3600:
+        hours = remainder // 3600
+        remainder = remainder % 3600
+        if remainder >= 60:
+            min = remainder // 60
+        elif remainder < 60:
+            sec = remainder
+    elif remainder >= 60:
+        min = remainder // 60
+    elif remainder < 60:
+        sec = remainder
+    hours = sec // (sec % 86400)
+    min = sec // (sec%(sec%86400))
+    sec = sec % (sec%(sec%86400))
+elif sec >= 3600:
+    hours = sec // 3600
+    min = sec // (sec % 3600)
+    sec = sec % (sec % 3600)
+elif sec >= 60:
     min = sec // 60
     sec = sec % 60
-    
-    if sec >= 3600:
-        hours = min // 60
-        min = min % 60
-         
-        if sec >= 86400:
-            days = sec // 86400
-            hours = hours % 24
+elif sec < 60:
+    sec = sec
+
+
 
 print("Days:    ", days)
 print("Hours:   ", hours)
@@ -576,10 +552,49 @@ elif bmi > 25:
     print("This person is considered overweight")
 print("")
 
-# Question 16 and 15 go here
+enter = input ("Press enter to continue")
+print("")
+
+print("Question 16 - February Days")
+print("The month of February normally has 28 days. But if it is a leap year, \
+February has 29 days. Write a program that asks the user to enter a year. The \
+program should then display the number of days in February that year. Use the \
+following criteria to identify leap years:")
+print("")
+print("1. Determine whether the year is divisible by 100. If it is, then it is \
+a leap year if and only if it is also divisible by 400. For example, 2000 is \
+a leap year, but 2100 is not")
+print("2. If the year is not divisible by 100, then it is a leap year if and \
+only if it is divisible by 4. For example, 2008 is a leap year, but 2009 is not")
+print("")
+print("Here is a sample run of the program:")
+print("Enter a year: 2008 [ENTER]")
+print("In 2008 February has 29 days")
+print("")
+year = int(input("Enter a year: "))
+
+# This sets up flags to determine if the year is a leap year or not
+if (year % 100) == 0:
+    if (year % 400) == 0:
+        is_leap_year = True
+    else:
+        is_leap_year = False
+elif (year % 4) == 0:
+    is_leap_year = True
+else:
+    is_leap_year = False
+
+# This is the decision statement that executes based on the flags we have already set
+if is_leap_year:
+    print("The February in", year, "has 29 days")
+else:
+    print("The February in", year, "has 28 days")
+print("")
 
 enter = input ("Press enter to continue")
 print("")
+
+#asd 16
 
 print("Question 17 - Wi-Fi Diagnostic Tree")
 print("Figure 3-19 shows a simplified flowchart for troubleshooting a bad Wi-Fi \

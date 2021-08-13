@@ -5,6 +5,9 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
+
+
+
 print("Question 1 - Bug Collector")
 print("A bug collector collects bugs every day for five days. Write a program \
 that keeps a running total of the number of bugs collected during the five \
@@ -45,6 +48,7 @@ for minutes in (10, 15, 20, 25, 30):
 print("")
 
 enter = input ("Press enter to continue")
+
 print("")
 
 print("Question 3 - Budget Analysis")
@@ -54,9 +58,21 @@ his or her expenses for the month and keep a running total. When the loop \
 finishes, the program should display the amount that the user is over or \
 under budget")
 print("")
-print("")
-print("")
-print("")
+amount_budgeted = float(input("Enter the amount budgeted for the month: "))
+expense = 0
+
+while expense != 0:
+    expense = float(input("Enter an expense amount"))
+    total_expense += expense
+
+# Calculate the if the total expense is over or under budget 
+if total_expense > amount_budgeted:
+    print("You were over budget by $", (total_expense - amount_budgeted))
+elif total_expense < amount_budgeted:
+    print("You were under budget by $", (amount_budgeted - total_expense))
+else:
+    print("You met your budget perfectly!")
+
 print("")
 
 enter = input ("Press enter to continue")
@@ -76,7 +92,22 @@ output")
 print("")
 print("What is the speed of the vehicle in mph? 40 [ENTER]")
 print("How many hours has it traveled? 3 [ENTER]")
-# Insert Graph here
+print("")
+print("Hours \t\t Distance Traveled")
+print("")
+print("1 \t\t 40")
+print("2 \t\t 80")
+print("3 \t\t 120")
+print("")
+speed = float(input("Enter the speed of a vehicle (in miles per hour): "))
+hours_traveled = int(input("Enter the number of hours the vehicle has traveled: "))
+print("Hours \t\t Distance Traveled")
+print("")
+
+for hours in range (1,hours_traveled+1):
+    print(hours, "\t\t", hours*speed) 
+
+print("")
 
 enter = input ("Press enter to continue")
 print("")
@@ -90,8 +121,16 @@ inner loop will ask the user for the inches of rainfall for that month. After \
 all iterations, the program should display the number of months, the total \
 inches of rainfall, and the average rainfall per month for the entire period")
 print("")
-print("")
-print("")
+total_inches = 0
+
+num_years = int(input("Enter the number of years: "))
+for year in range (1, num_years+1):
+    for month in range (1,13):
+        inches = float(input("Enter the inches of rain that fell in month " + str(month) + ": "))
+        total_inches += inches
+print("Total number of months:", num_years*12)
+print("Total inches of rainfall:", total_inches)
+print("Average rainfall per month:", total_inches/(num_years*12))
 print("")
 
 enter = input ("Press enter to continue")
@@ -106,6 +145,12 @@ print("F = (9/5) * C + 32")
 print("")
 print("where F is the Fahrenheit temperature, and C is the Celsius \
 temperature. Your program must use a loop to display the table")
+print("")
+print("Fahrenheit \t Celsius")
+
+for temp in range (0,21):
+    print(temp, "\t\t", ((9/5)*temp)+32)
+print("")
 
 enter = input ("Press enter to continue")
 print("")
@@ -118,9 +163,17 @@ should ask the user for the number of days. Display a table showing what the \
 salary was for each day, then show the total pay at the end of the period. \
 The output should be displayed in a dollar amount, not the number of pennies")
 print("")
-print("")
-print("")
-print("")
+num_days = int(input("Enter the number of days: "))
+dollars = .01
+total_pay = 0
+print("Days \t\t Pay (in dollars)")
+#print(1, "\t\t", .01)
+for days in range (1,num_days+1):
+    
+    print(days, "\t\t", format(dollars, ',.2f'))
+    dollars +=dollars
+    total_pay+= dollars
+print("Total Pay:", format(total_pay, ',.2f'))
 
 enter = input ("Press enter to continue")
 print("")
