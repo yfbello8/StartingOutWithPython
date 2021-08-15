@@ -5,38 +5,6 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
-print("Question 14 - Write a program that uses nested loops to draw this pattern:")
-print("*******")
-print("******")
-print("*****")
-print("****")
-print("***")
-print("**")
-print("*")
-print("")
-
-for l in range (0,7):
-    for r in range (0,7-l):
-        print("*", end='')
-    print("")
-print("")
-print("")
-
-print("Question 8 - Sum of Numbers")
-print("Write a program with a loop that asks the user to enter a series of \
-positive numbers. The user should enter a negative number to signal the end \
-of the series. After all the positive numbers have been entered, the program \
-should display their sum")
-print("")
-total = 0
-user_input = 1
-while user_input != -user_input:
-    user_input = int(input("Enter a positive number (Enter a negative number \
-    to end the series): "))
-    total = total+ user_input
-print("Sum: ", total)
-
-
 print("Question 1 - Bug Collector")
 print("A bug collector collects bugs every day for five days. Write a program \
 that keeps a running total of the number of bugs collected during the five \
@@ -206,9 +174,19 @@ print("Total Pay:", format(total_pay, ',.2f'))
 enter = input ("Press enter to continue")
 print("")
 
-# * goes here
+print("Question 8 - Sum of Numbers")
+print("Write a program with a loop that asks the user to enter a series of \
+positive numbers. The user should enter a negative number to signal the end \
+of the series. After all the positive numbers have been entered, the program \
+should display their sum")
 print("")
-
+total = 0
+user_input = 1
+while user_input > -1:
+    user_input = int(input("Enter a positive number (Enter a negative number \
+    to end the series): "))
+    total = total+ user_input
+print("Sum: ", total)
 print("")
 
 enter = input ("Press enter to continue")
@@ -324,10 +302,11 @@ print("***")
 print("**")
 print("*")
 print("")
-for line in range (1,8):
-    for asterik in range (8,1):
-        print("*")
-print("")
+
+for line_index in range (0,7):
+    for r in range (0,7-line_index):
+        print("*", end='')
+    print("")
 print("")
 
 enter = input ("Press enter to continue")
