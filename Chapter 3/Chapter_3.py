@@ -5,72 +5,6 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
-print("Question 15 - Time Calculator")
-print("Write a program that asks the user to enter a number of seconds and \
-works as follows:")
-print("")
-print("- There are 60 seconds in a minute. If the number of seconds entered by \
-the user is greater than or equal to 60, the program should convert the number \
-of seconds to minutes and seconds")
-print("- There are 3,600 seconds in an hour. If the number of seconds entered \
-by  the user is greater than or equal to 3,600, the program should convert the \
-number of seconds to hours, minutes, and seconds")
-print("- There are 86,400 seconds in a day. If the number of seconds entered by \
-the user is greater than or equal to 86,400, the program should convert the \
-number of seconds to days, hours, minutes, and seconds")
-print("")
-sec = int(input("Enter the number of seconds: "))
-
-days = 0
-hours = 0
-min = 0
-remainder = 0
-
-if sec >= 86400:
-    days = sec // 86400
-    remainder = sec % 86400
-    if remainder >= 3600:
-        hours = remainder // 3600
-        remainder = remainder % 3600
-        if remainder >= 60:
-            min = remainder // 60
-        elif remainder < 60:
-            sec = remainder
-    elif remainder >= 60:
-        min = remainder // 60
-    elif remainder < 60:
-        sec = remainder
-    hours = sec // (sec % 86400)
-    min = sec // (sec%(sec%86400))
-    sec = sec % (sec%(sec%86400))
-elif sec >= 3600:
-    hours = sec // 3600
-    min = sec // (sec % 3600)
-    sec = sec % (sec % 3600)
-elif sec >= 60:
-    min = sec // 60
-    sec = sec % 60
-elif sec < 60:
-    sec = sec
-
-
-
-print("Days:    ", days)
-print("Hours:   ", hours)
-print("Minutes: ", min)
-print("Seconds: ", sec)
-
-enter = input ("Press enter to continue")
-print("")
-
-
-
-print("")
-
-enter = input ("Press enter to continue")
-print("")
-
-
 print("Question 1 - Day of the Week")
 print("Write a program that asks the user for a number in the range of 1 \
 through 7. The program should display the corresponding day of the week, \
@@ -555,6 +489,81 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
+print("Question 15 - Time Calculator")
+print("Write a program that asks the user to enter a number of seconds and \
+works as follows:")
+print("")
+print("- There are 60 seconds in a minute. If the number of seconds entered by \
+the user is greater than or equal to 60, the program should convert the number \
+of seconds to minutes and seconds")
+print("- There are 3,600 seconds in an hour. If the number of seconds entered \
+by  the user is greater than or equal to 3,600, the program should convert the \
+number of seconds to hours, minutes, and seconds")
+print("- There are 86,400 seconds in a day. If the number of seconds entered by \
+the user is greater than or equal to 86,400, the program should convert the \
+number of seconds to days, hours, minutes, and seconds")
+print("")
+sec = int(input("Enter the number of seconds: "))
+
+days = 0
+hours = 0
+min = 0
+remainder = 0
+
+if sec < 60:
+    sec = sec
+elif sec >= 60 and sec < 3600:
+    min = sec // 60
+    sec = sec % 60
+elif sec >= 3600 and sec < 86400:
+    hours = sec // 3600
+    remainder = sec % 3600
+    min = remainder // 60
+    sec = remainder - (60 * min)
+elif sec >= 86400:
+    days = sec // 86400
+    remainder = sec % 86400
+    hours = remainder // 3600
+    remainder = remainder % 3600
+    min = remainder // 60
+    sec = remainder - 60*min
+
+    '''
+This is the first way I tried - I was using complex if statements and nested ifs
+until I was told that I could get rid of the if statements and make the whole 
+thing much less complex. I have since simplified it and it works
+
+if sec >= 86400:
+    days = sec // 86400
+    remainder = sec % 86400
+    # This takes the remainder of the previous integer division (which would 
+    # have been the decimal) and divides it by 3600 to find the hours
+    hours = remainder // 3600
+    remainder = remainder % 3600
+    min = remainder // 60
+    sec = remainder - (60 * min) 
+elif sec >= 3600:
+    hours = sec // 3600
+    remainder = sec % 3600
+    min = remainder // 60
+    sec = remainder - (60 * min) 
+elif sec >= 60:
+    min = sec // 60
+    sec = sec % 60
+elif sec < 60:
+    sec = sec
+
+'''
+
+
+print("Days:    ", days)
+print("Hours:   ", hours)
+print("Minutes: ", min)
+print("Seconds: ", sec)
+
+enter = input ("Press enter to continue")
+print("")
+
 print("Question 16 - February Days")
 print("The month of February normally has 28 days. But if it is a leap year, \
 February has 29 days. Write a program that asks the user to enter a year. The \
@@ -593,8 +602,6 @@ print("")
 
 enter = input ("Press enter to continue")
 print("")
-
-#asd 16
 
 print("Question 17 - Wi-Fi Diagnostic Tree")
 print("Figure 3-19 shows a simplified flowchart for troubleshooting a bad Wi-Fi \

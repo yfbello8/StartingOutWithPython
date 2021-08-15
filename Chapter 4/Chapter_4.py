@@ -5,7 +5,36 @@ print("")
 enter = input ("Press enter to continue")
 print("")
 
+print("Question 14 - Write a program that uses nested loops to draw this pattern:")
+print("*******")
+print("******")
+print("*****")
+print("****")
+print("***")
+print("**")
+print("*")
+print("")
 
+for l in range (0,7):
+    for r in range (0,7-l):
+        print("*", end='')
+    print("")
+print("")
+print("")
+
+print("Question 8 - Sum of Numbers")
+print("Write a program with a loop that asks the user to enter a series of \
+positive numbers. The user should enter a negative number to signal the end \
+of the series. After all the positive numbers have been entered, the program \
+should display their sum")
+print("")
+total = 0
+user_input = 1
+while user_input != -user_input:
+    user_input = int(input("Enter a positive number (Enter a negative number \
+    to end the series): "))
+    total = total+ user_input
+print("Sum: ", total)
 
 
 print("Question 1 - Bug Collector")
@@ -169,7 +198,6 @@ total_pay = 0
 print("Days \t\t Pay (in dollars)")
 #print(1, "\t\t", .01)
 for days in range (1,num_days+1):
-    
     print(days, "\t\t", format(dollars, ',.2f'))
     dollars +=dollars
     total_pay+= dollars
@@ -178,14 +206,9 @@ print("Total Pay:", format(total_pay, ',.2f'))
 enter = input ("Press enter to continue")
 print("")
 
-print("Question 8 - Sum of Numbers")
-print("Write a program with a loop that asks the user to enter a series of \
-positive numbers. The user should enter a negative number to signal the end \
-of the series. After all the positive numbers have been entered, the program \
-should display their sum")
+# * goes here
 print("")
-print("")
-print("")
+
 print("")
 
 enter = input ("Press enter to continue")
@@ -196,8 +219,9 @@ print("Assuming the ocean’s level is currently rising at about 1.6 millimeters
 per year, create an application that displays the number of millimeters that \
 the ocean will have risen each year for the next 25 years")
 print("")
-print("")
-print("")
+print("Year \t\t Millimeters risen")
+for year in range (1,26):
+    print(year, "\t\t", year*1.6)
 print("")
 
 enter = input ("Press enter to continue")
@@ -209,8 +233,9 @@ semester. It has been announced that the tuition will increase by 3 \
 percent each year for the next 5 years. Write a program with a loop that \
 displays the projected semester tuition amount for the next 5 years")
 print("")
-print("")
-print("")
+print("Year \t\t Tuition Amount")
+for year in range (1,6):
+    print(year, "\t\t", (1.03*year)*8000)
 print("")
 
 enter = input ("Press enter to continue")
@@ -223,8 +248,10 @@ program that lets the user enter their starting weight, then creates and \
 displays a table showing what their expected weight will be at the end of \
 each month for the next 6 months if they stay on this diet")
 print("")
-print("")
-print("")
+starting_weight = float(input("Enter your starting weight: "))
+print("Month \t\t Weight Lost")
+for month in range (1,7):
+    print(month, "\t\t", month*4)
 print("")
 
 enter = input ("Press enter to continue")
@@ -241,9 +268,12 @@ print("4! = 1 * 2 * 3 * 4 = 24")
 print("Write a program that lets the user enter a nonnegative integer then \
 uses a loop to calculate the factorial of that number. Display the factorial")
 print("")
-print("")
-print("")
-print("")
+user_integer = int(input("Enter an non-negative integer: "))
+
+factorial = 1
+for x in range (2, user_integer+1):
+    factorial *= x
+    print(x, "\t\t Factorial:",factorial)
 
 enter = input ("Press enter to continue")
 print("")
@@ -261,8 +291,25 @@ print("Number of days to multiply: 10")
 print("")
 print("The program should display the following table of data:")
 print("")
+print("Day \t\t\t Approximate Population")
+print("1 \t\t\t 2")
+print("2 \t\t\t 2.6")
+print("3 \t\t\t 3.38")
+print("4 \t\t\t 4.394")
+print("5 \t\t\t 5.7122")
+print("6 \t\t\t 7.42586")
+print("7 \t\t\t 9.653619")
+print("8 \t\t\t 12.5497")
+print("9 \t\t\t 16.31462")
+print("10 \t\t\t 21.209")
 print("")
+starting_num = int(input("Starting number of organisms: "))
+daily_increase = int(input("Average daily increase: "))
+num_days = int(input("Number of days to multiply: "))
 print("")
+for day in range (1, 11): 
+    print(day, "\t\t\t", starting_num)
+    starting_num = starting_num * (1+daily_increase/100)
 print("")
 
 enter = input ("Press enter to continue")
@@ -277,6 +324,9 @@ print("***")
 print("**")
 print("*")
 print("")
+for line in range (1,8):
+    for asterik in range (8,1):
+        print("*")
 print("")
 print("")
 
