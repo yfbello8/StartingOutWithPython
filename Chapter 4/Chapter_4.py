@@ -3,8 +3,8 @@ print("This program displays the Programming Challenges in Chapter 4")
 print("")
 
 enter = input ("Press enter to continue")
-print("")
-
+print("")             
+                  
 print("Question 1 - Bug Collector")
 print("A bug collector collects bugs every day for five days. Write a program \
 that keeps a running total of the number of bugs collected during the five \
@@ -304,7 +304,7 @@ print("*")
 print("")
 
 for line_index in range (0,7):
-    for r in range (0,7-line_index):
+    for row_index in range (0,7-line_index):
         print("*", end='')
     print("")
 print("")
@@ -320,9 +320,14 @@ print("#   #")
 print("#    #")
 print("#     #")
 print("")
-print("")
-print("")
-print("")
+
+for line_index in range (0,6):
+    print("#", end='')
+    for row_index in range (0,line_index):
+        print(" ", end='')
+    print("#")
+
+print(" ")
 
 enter = input ("Press enter to continue")
 print("")
@@ -332,8 +337,15 @@ print("In this chapter, you saw an example of a loop that draws a square. \
 Write a turtle graphics program that uses nested loops to draw 100 squares, \
 to create the design shown in Figure 4-13.")
 print("")
-print("")
-print("")
+
+import turtle
+turtle.showturtle()
+turtle.speed(10)
+
+for y in range (1,101):
+    for x in range (4):
+        turtle.forward(-5*y)
+        turtle.left(-90)
 print("")
 
 enter = input ("Press enter to continue")
