@@ -137,6 +137,9 @@ def menu():
         elif choice == 27:
             quit_program()
 
+def km_to_miles(km):
+    return km * 0.6214
+
 def Question_1():
     print("Question 1 - Kilometer Converter")
     print("Write a program that asks the user to enter a distance in kilometers, \
@@ -144,13 +147,21 @@ def Question_1():
     print("")
     print("Miles = Kilometers * 0.6214")
     print("")
-    print("")
-    print("")
-    print("")
+    km = float(input("Enter a distance in kilometers to be converted to miles: "))
+    print(km_to_miles(km), "miles")
     print("")
 
     return_to_menu()
+
+def display_final_price(final_price):
+    print("Final price is $", final_price, sep='')
  
+def tax_calculator(list_price):
+    state_tax = list_price * .05
+    county_tax = list_price * .025
+    final_price = list_price + state_tax + county_tax
+    display_final_price(final_price)
+    
 
 def Question_2():
     print("Question 2 - Sales Tax Program Refactoring")
@@ -160,15 +171,14 @@ def Question_2():
     written that program, redesign it so the subtasks are in functions. If you \
     have not already written that program, write it using functions")
     print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
+    list_price = float(input("Enter the list price of the item: "))
+    tax_calculator(list_price)
     print("")
 
     return_to_menu()
 
+def building_insurance(building_cost):
+    return building_cost * 0.8
 
 def Question_3():
     print("Question 3 - How Much Insurance?")
@@ -178,15 +188,15 @@ def Question_3():
     the replacement cost of a building, then displays the minimum amount of \
     insurance he or she should buy for the property")
     print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
+    building_cost = float(input("Enter the cost of the building: "))
+    print("Minimal amount of insurance you should purchase: $", \
+        building_insurance(building_cost), sep='')
     print("")
 
     return_to_menu()
     
+def annual_cost(expense):
+    return expense*12
 
 def Question_4():
     print("Question 4 - Automobile Costs")
@@ -196,15 +206,31 @@ def Question_4():
     then display the total monthly cost of these expenses, and the total annual \
     cost of these expenses")
     print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
+    loan = float(input("Enter your monthly loan payment: "))
+    insurance = float(input("Enter your monthly insurance payment: "))
+    gas = float(input("Enter your monthly gas payment: "))
+    oil = float(input("Enter your monthly oil payment: "))
+    tires = float(input("Enter your monthly tires payment: "))
+    maintenance = float(input("Enter your monthly maintenance payment: "))
+    print("Expense \t\t Annual Cost")
+    print("Loan Payment \t\t $", annual_cost(loan), sep='')
+    print("Insurance \t\t $", annual_cost(insurance), sep='')
+    print("Gas \t\t\t $", annual_cost(gas), sep='')
+    print("Oil \t\t\t $", annual_cost(oil), sep='')
+    print("Tires \t\t\t $", annual_cost(tires), sep='')
+    print("Maintenance \t\t $", annual_cost(maintenance), sep='')
     print("")
 
     return_to_menu()
 
+def property_tax_calculator(assessment_value):
+    property_tax = (assessment_value / 100) * .72
+    print("Assessment value: $", assessment_value, sep='')
+    print("Property tax: $", format(property_tax,',.2f'), sep='')
+
+def assessment_value_calculator(actual_value):
+    assessment_value = actual_value * 0.6
+    property_tax_calculator(assessment_value)
 
 def Question_5():
     print("Question 5 - Property Tax")
@@ -216,15 +242,17 @@ def Question_5():
     program that asks for the actual value of a piece of property and displays \
     the assessment value and property tax")
     print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
+    actual_value = float(input("Enter the actual value of the property: "))
+    assessment_value_calculator(actual_value)
     print("")
 
     return_to_menu()
 
+def calories_from_carbs(carb_grams):
+    return carb_grams * 4
+
+def calories_from_fat(fat_grams):
+    return fat_grams * 9
 
 def Question_6():
     print("Question 6 - Calories from Fat and Carbohydrates")
@@ -242,7 +270,12 @@ def Question_6():
     print("")
     print("The nutritionist asks you to write a program that will make these \
     calculations")
+    print("")
+    fat_grams = float(input("Enter the number of fat grams consumed in a day: "))
+    carb_grams = float(input("Enter the number of carb grams consumed in a day: "))
 
+    print("Calories from fat:", calories_from_fat(fat_grams))
+    print("Calories from carbs:", calories_from_carbs(carb_grams))
     return_to_menu()
    
 
@@ -253,6 +286,13 @@ def Question_7():
     program that asks how many tickets for each class of seats were sold, \
     then displays the amount of income generated from ticket sales")
     print("")
+    class_a_tickets_sold = int(input("Enter the number of Class A tickets sold: "))
+    class_b_tickets_sold = int(input("Enter the number of Class B tickets sold: "))
+    class_c_tickets_sold = int(input("Enter the number of Class C tickets sold: "))
+    
+    class_a_ticket_sales(class_a_tickets_sold)
+    class_b_ticket_sales(class_b_tickets_sold)
+    class_c_ticket_sales(class_c_tickets_sold)
     print("")
     print("")
     print("")
