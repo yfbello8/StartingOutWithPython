@@ -25,7 +25,7 @@ def return_to_menu():
     menu()
  
 def quit_program():
-    print("Thank you for checking out Chapter XXX Programming Assignments!")
+    print("Thank you for checking out Chapter 6 Programming Assignments!")
     print("Please let me know your thoughts and suggestions! Check out other \
     chapters as well! See you later!")
  
@@ -42,54 +42,26 @@ def menu():
     QUESTION_10 = 10
     QUESTION_11 = 11
     QUESTION_12 = 12
-    QUESTION_13 = 13
-    QUESTION_14 = 14
-    QUESTION_15 = 15
-    QUESTION_16 = 16
-    QUESTION_17 = 17
-    QUESTION_18 = 18
-    QUESTION_19 = 19
-    QUESTION_20 = 20
-    QUESTION_21 = 21
-    QUESTION_22 = 22
-    QUESTION_23 = 23
-    QUESTION_24 = 24
-    QUESTION_25 = 25
-    QUESTION_26 = 26
-    QUIT_PROGRAM = 27
+    QUIT_PROGRAM = 13
  
     choice = 0
  
     while (choice != QUIT_PROGRAM):
-        print("Here are the questions for chapter XXX - XXXX")
+        print("Here are the questions for chapter 6 - Files and Exceptions")
         print("\t Question Menu")
  
-        print("Question 1 - ")
-        print("Question 2 - ")
-        print("Question 3 - ")
-        print("Question 4 - ")
-        print("Question 5 - ")
-        print("Question 6 - ")
-        print("Question 7 - ")
-        print("Question 8 - ")
-        print("Question 9 - ")
-        print("Question 10 - ")
-        print("Question 11 - ")
-        print("Question 12 - ")
-        print("Question 13 - ")
-        print("Question 14 - ")
-        print("Question 15 - ")
-        print("Question 16 - ")
-        print("Question 17 - ")
-        print("Question 18 - ")
-        print("Question 19 - ")
-        print("Question 20 - ")
-        print("Question 21 - ")
-        print("Question 22 - ")
-        print("Question 23 - ")
-        print("Question 24 - ")
-        print("Question 25 - ")
-        print("Question 26 - ")
+        print("Question 1 - File Display")
+        print("Question 2 - File Head Display")
+        print("Question 3 - Line Numbers")
+        print("Question 4 - Item Counter")
+        print("Question 5 - Sum of Numbers")
+        print("Question 6 - Average of Numbers")
+        print("Question 7 - Random Number File Writer")
+        print("Question 8 - Random Number File Reader")
+        print("Question 9 - Exception Handing")
+        print("Question 10 - Golf Scores")
+        print("Question 11 - Personal Web Page Generator")
+        print("Question 12 - Average Steps Taken")
  
         choice = int(input("What question do you want to look at? "))
         print("")
@@ -123,34 +95,6 @@ def menu():
         elif choice == 12:
             Question_12()
         elif choice == 13:
-            Question_13()
-        elif choice == 14:
-            Question_14()
-        elif choice == 15:
-            Question_15()
-        elif choice == 16:
-            Question_16()
-        elif choice == 17:
-            Question_17()
-        elif choice == 18:
-            Question_18()
-        elif choice == 19:
-            Question_19()
-        elif choice == 20:
-            Question_20()
-        elif choice == 21:
-            Question_21()
-        elif choice == 22:
-            Question_22()
-        elif choice == 23:
-            Question_23()
-        elif choice == 24:
-            Question_24()
-        elif choice == 25:
-            Question_25()
-        elif choice == 26:
-            Question_26()
-        elif choice == 27:
             quit_program()
  
 def Question_1():
@@ -222,90 +166,7 @@ def Question_12():
     print_question(12)
  
     return_to_menu()
-     
- 
-def Question_13():
-    print_question(13)
- 
-    return_to_menu()
- 
-def Question_14():
-    print_question(14)
- 
-    return_to_menu()
-    
- 
-def Question_15():
-    print_question(15)
- 
-    return_to_menu()
-    
- 
-def Question_16():
-    print_question(16)
- 
-    return_to_menu()
-       
- 
-def Question_17():
-    print_question(17)
- 
-    return_to_menu()
- 
- 
-def Question_18():
-    print_question(18)
- 
-    return_to_menu()
- 
- 
-def Question_19():
-    print_question(19)
- 
-    return_to_menu()
- 
- 
-def Question_20():
-    print_question(20)
- 
-    return_to_menu()
-    
- 
-def Question_21():
-    print_question(21)
- 
-    return_to_menu()
- 
- 
-def Question_22():
-    print_question(22)
- 
-    return_to_menu()
       
- 
-def Question_23():
-    print_question(23)
- 
-    return_to_menu()
-       
- 
-def Question_24():
-    print_question(24)
- 
-    return_to_menu()
-    
- 
-def Question_25():
-    print_question(25)
- 
-    return_to_menu()
-   
- 
-def Question_26():
-    print_question(26)
- 
-    return_to_menu()
- 
 main()
 
 
